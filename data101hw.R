@@ -43,7 +43,7 @@ table(df$role_family)
 
 fam1 <- subset(df, role_family == "Analytics Manager")
 fam2 <- subset(df, role_family == "Data Scientist")
-fam3 <- subset(df, role_family == "Other/Unclassified")
+fam3 <- subset(df, role_family == "Other / Unclassified")
 fam4 <- subset(df, role_family == "AI Engineer")
 fam5 <- subset(df, role_family == "Data Analyst")
 fam6 <- subset(df, role_family == "Computer Vision")
@@ -56,7 +56,7 @@ fam11 <- subset(df, role_family == "NLP")
 #same min and max for every plot for consistency, div by 1000 so it stops going into scientific notation
 sal_min <- min(df$salary_in_usd) / 1000
 sal_max <- max(df$salary_in_usd) / 1000
-# analytics manager
+
 fam1_avg <- tapply(fam1$salary_in_usd, fam1$work_year, mean) / 1000
 plot(fam1_avg, type = "l", ylim = c(sal_min, sal_max),
      xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
@@ -66,3 +66,50 @@ fam2_avg <- tapply(fam2$salary_in_usd, fam2$work_year, mean) / 1000
 plot(fam2_avg, type = "l", ylim = c(sal_min, sal_max),
      xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
      main = "Data Scientist: Avg Salary Over Time")
+
+# i had claude do the rest of the families since i am not typing all of that
+
+fam3_avg <- tapply(fam3$salary_in_usd, fam3$work_year, mean) / 1000
+plot(fam3_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "Other/Unclassified: Avg Salary Over Time")
+
+fam4_avg <- tapply(fam4$salary_in_usd, fam4$work_year, mean) / 1000
+plot(fam4_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "AI Engineer: Avg Salary Over Time")
+
+fam5_avg <- tapply(fam5$salary_in_usd, fam5$work_year, mean) / 1000
+plot(fam5_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "Data Analyst: Avg Salary Over Time")
+
+fam6_avg <- tapply(fam6$salary_in_usd, fam6$work_year, mean) / 1000
+plot(fam6_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "Computer Vision: Avg Salary Over Time")
+
+fam7_avg <- tapply(fam7$salary_in_usd, fam7$work_year, mean) / 1000
+plot(fam7_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "Data Engineer: Avg Salary Over Time")
+
+fam8_avg <- tapply(fam8$salary_in_usd, fam8$work_year, mean) / 1000
+plot(fam8_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "ML Engineer: Avg Salary Over Time")
+
+fam9_avg <- tapply(fam9$salary_in_usd, fam9$work_year, mean) / 1000
+plot(fam9_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "Research Scientist: Avg Salary Over Time")
+
+fam10_avg <- tapply(fam10$salary_in_usd, fam10$work_year, mean) / 1000
+plot(fam10_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "AI Architect: Avg Salary Over Time")
+
+fam11_avg <- tapply(fam11$salary_in_usd, fam11$work_year, mean) / 1000
+plot(fam11_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "NLP: Avg Salary Over Time")
