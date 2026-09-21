@@ -19,15 +19,14 @@ nrow(df)
 year_avg <- tapply(df$salary_in_usd, df$work_year, mean)
 plot (year_avg,
       type = "l",
-      xlab = "year (order)",
+      xlab = "year (2020-2026)",
       ylab = "avg salary",
       main = "Average Salary Over Time (2020-2026)"
       )
 
 #and bar plot
 barplot (year_avg,
-      type = "l",
-      xlab = "year (order)",
+      xlab = "year (2020-2026)",
       ylab = "avg salary",
       main = "Average Salary Over Time (2020-2026)"
 )
@@ -38,9 +37,32 @@ barplot (year_avg,
 #checking how many unique family groups first
 # length(unique(df$role_family))
 # 11
+#this would be so much easier if we could use for loops but wtv
 
+table(df$role_family)
 
+fam1 <- subset(df, role_family == "Analytics Manager")
+fam2 <- subset(df, role_family == "Data Scientist")
+fam3 <- subset(df, role_family == "Other/Unclassified")
+fam4 <- subset(df, role_family == "AI Engineer")
+fam5 <- subset(df, role_family == "Data Analyst")
+fam6 <- subset(df, role_family == "Computer Vision")
+fam7 <- subset(df, role_family == "Data Engineer")
+fam8 <- subset(df, role_family == "ML Engineer")
+fam9 <- subset(df, role_family == "Research Scientist")
+fam10 <- subset(df, role_family == "AI Architect")
+fam11 <- subset(df, role_family == "NLP")
 
+#same min and max for every plot for consistency, div by 1000 so it stops going into scientific notation
+sal_min <- min(df$salary_in_usd) / 1000
+sal_max <- max(df$salary_in_usd) / 1000
+# analytics manager
+fam1_avg <- tapply(fam1$salary_in_usd, fam1$work_year, mean) / 1000
+plot(fam1_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "Analytics Manager: Avg Salary Over Time")
 
-
-
+fam2_avg <- tapply(fam2$salary_in_usd, fam2$work_year, mean) / 1000
+plot(fam2_avg, type = "l", ylim = c(sal_min, sal_max),
+     xlab = "Year (2020-2026)", ylab = "Avg Salary (USD, thousands)",
+     main = "Data Scientist: Avg Salary Over Time")
